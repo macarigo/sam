@@ -1,0 +1,2 @@
+# sam
+Your pocket samaritan
