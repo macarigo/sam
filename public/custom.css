@@ -1,0 +1,22 @@
+#map {
+  height: 500px;
+}
+
+.bungee-regular {
+  font-family: "Bungee", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+select {
+  border: 1px solid #ccc;
+  vertical-align: top;
+  height: 20px;
+}
+
+input,
+select {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}

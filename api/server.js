@@ -1,7 +1,17 @@
 // Import required modules
 const express = require('express');
+const cors = require('cors');
+
 const app = express();
+
+
+
 const bodyParser = require('body-parser');
+
+app.use(cors({
+    origin: 'http://localhost:3000', // Replace with your frontend URL
+    methods: 'GET,POST,PUT,DELETE', // Allowed HTTP methods
+}));
 
 // Middleware
 app.use(bodyParser.json());
@@ -23,9 +33,13 @@ app.get('/api/occurencies/:id', (req, res) => {
     res.json(occurency);
 });
 
+app.get('/api/locations', (req, res) => {
+    res.json(occurencies.map(({ id, title, location }) => ({ id, title, location })));
+})
+
 // Add a new occurency
 app.post('/api/occurencies', (req, res) => {
-    const { title, description, category, image, location } = req.body;
+    const { title, description, category, image, location, date } = req.body;
     if (!title || !description || !category || !location) {
         return res.status(400).send('Fill in the required fields');
     }
@@ -39,6 +53,8 @@ app.post('/api/occurencies', (req, res) => {
         location,
         date
     };
+
+    newOccurency.date = Date.now();
 
     occurencies.push(newOccurency);
     res.status(201).json(newOccurency);
