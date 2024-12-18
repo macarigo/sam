@@ -25,17 +25,18 @@ app.get('/api/occurencies/:id', (req, res) => {
 
 // Add a new occurency
 app.post('/api/occurencies', (req, res) => {
-    const { title, description, location, image, date } = req.body;
-    if (!title || !description || !location || !image || !date) {
-        return res.status(400).send('All fields are required');
+    const { title, description, category, image, location } = req.body;
+    if (!title || !description || !category || !location) {
+        return res.status(400).send('Fill in the required fields');
     }
 
     const newOccurency = {
         id: occurencies.length + 1,
         title,
         description,
-        location,
+        category,
         image,
+        location,
         date
     };
 
@@ -48,9 +49,9 @@ app.put('/api/occurencies/:id', (req, res) => {
     const occurency = occurencies.find(o => o.id === parseInt(req.params.id));
     if (!occurency) return res.status(404).send('Occurency not found');
 
-    const { title, description, location, image, date } = req.body;
-    if (!title || !description || !location || !image || !date) {
-        return res.status(400).send('All fields are required');
+    const { title, description, category, image, location } = req.body;
+    if (!title || !description || !category || !location) {
+        return res.status(400).send('Fill in the required fields');
     }
 
     occurency.title = title;
