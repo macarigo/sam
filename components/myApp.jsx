@@ -26,7 +26,7 @@ export default function myApp() {
         console.log("FETCHING");
 
         try {
-            const response = await fetch('http://localhost:4000/api/closestOccurrences', {
+            const response = await fetch('http://ec2-13-60-190-47.eu-north-1.compute.amazonaws.com//api/closestOccurrences', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

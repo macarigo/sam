@@ -31,7 +31,7 @@ const Modal = ({ isOpen, onClose, getLocation, setGetLocation, mapClick }) => {
         const payload = { ...formData, location: getLocation };
 
         try {
-            const response = await fetch('http://localhost:4000/api/occurencies', {
+            const response = await fetch('http://ec2-13-60-190-47.eu-north-1.compute.amazonaws.com//api/occurencies', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
