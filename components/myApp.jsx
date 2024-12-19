@@ -26,7 +26,7 @@ export default function myApp() {
         console.log("FETCHING");
 
         try {
-            const response = await fetch('https://5620-13-60-190-47.ngrok-free.app/api/closestOccurrences', {
+            const response = await fetch('https://18ae-13-60-190-47.ngrok-free.app/api/closestOccurrences', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

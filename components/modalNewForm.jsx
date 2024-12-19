@@ -31,7 +31,7 @@ const Modal = ({ isOpen, onClose, getLocation, setGetLocation, mapClick }) => {
         const payload = { ...formData, location: getLocation };
 
         try {
-            const response = await fetch('https://5620-13-60-190-47.ngrok-free.app/api/occurencies', {
+            const response = await fetch('https://18ae-13-60-190-47.ngrok-free.app/api/occurencies', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
