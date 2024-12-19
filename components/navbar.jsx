@@ -16,16 +16,7 @@ export default function Navbar() {
                 </Link>
 
                 {/* Menu Options - Right Aligned */}
-                <div hidden className="flex gap-x-3 ">
-                    <Link href="/" className={"hover:text-brand " + (currentRoute === "/" ? "text-brand" : "text-white")}>
-                        Home
-                    </Link>
-                    <Link href="/unsolved" className={"hover:text-brand " + (currentRoute === "/unsolved" ? "text-brand" : "text-white")}>
-                        Unsolved
-                    </Link>
-                    <Link href="/solved" className={"hover:text-brand " + (currentRoute === "/solved" ? "text-brand" : "text-white")}>
-                        Solved
-                    </Link>
+                <div className="flex gap-x-3 ">
                     <Link href="/partners" className={"hover:text-brand " + (currentRoute === "/partners" ? "text-brand" : "text-white")}>
                         Partners
                     </Link>

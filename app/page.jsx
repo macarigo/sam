@@ -16,6 +16,7 @@ export default function Page() {
     const [getLocation, setGetLocation] = useState([]);
     const [mapClick, setMapClick] = useState(false);
     const [closestOccurrences, setClosestOccurrences] = useState([]);
+    const [sidePanelActive, setSidePanelActive] = useState(false);
 
     const fetchClosestOccurrences = async () => {
 
@@ -63,27 +64,67 @@ export default function Page() {
         setRefresh(refresh + 1);
     }
 
+    const toggleSidePanel = () => {
+        setSidePanelActive(!sidePanelActive);
+    }
+
     useEffect(() => {
         fetchClosestOccurrences();
     }, [getLocation])
 
+    const SidePanelButton = ({ sidePanelActive, togg }) => {
+
+        if (!sidePanelActive) {
+            return (
+
+                <div onClick={toggleSidePanel} className="flex justify-center align-center items-center ml-3 px-2 py-3 rounded-md opacity-80 fixed w-12 h-12 md:w-20 md:h-20 z-[1000] bg-brand text-neutral-100 hover:bg-neutral-100 hover:text-brand">
+                    &gt;
+                </div>)
+
+        }
+
+        return null;
+
+    }
+
+    const SidePanel = ({ sidePanelActive, toggleSidePanel }) => {
+
+        if (sidePanelActive) {
+            return (
+
+                <div id="parentTransparent" className="fixed px-3 pt-3 pb-12 ml-3 h-3/6 rounded-md z-[1000] flex flex-col overflow-scroll items-center">
+                    <div className='container mx-auto px-4 py-4 flex justify-between items-center align-center'>
+                        <p className="text-white text-2xl mb-4">Closest unsolved occurrences</p>
+                        <p className='text-xl text-neutral-100 mb-4'>
+                            <button onClick={toggleSidePanel}>X</button>
+                        </p>
+                    </div>
+
+                    <div className="gap-12 flex flex-col items-center">
+                        {closestOccurrences.map((occurrence) => (
+                            <Card key={occurrence.id} title={occurrence.title} description={occurrence.description} />
+                        ))}
+                    </div>
+                </div>)
+        }
+
+        return null;
+
+
+
+    }
+
     return <div className="w-full h-full flex justify-start items-center">
 
-        <div id="parentTransparent" className="fixed px-3 pt-3 pb-12 ml-3 h-3/6 rounded-md z-[1000] flex flex-col overflow-scroll items-center">
-            <p className="px-2 py-3 text-white text-2xl rounded-md mb-4">Closest unsolved occurrences</p>
-            <div className="gap-12 flex flex-col items-center">
-                {closestOccurrences.map((occurrence) => (
-                    <Card key={occurrence.id} title={occurrence.title} description={occurrence.description} />
-                ))}
-            </div>
 
 
-        </div>
+        <SidePanelButton sidePanelActive={sidePanelActive} setSidePanelActive={setSidePanelActive} />
+        <SidePanel sidePanelActive={sidePanelActive} toggleSidePanel={toggleSidePanel} />
+
         {console.log("getLocation before map is rendered on page.jsx: " + getLocation)}
         <Map refresh={refresh} onClick={openModal} getLocation={getLocation} setGetLocation={setGetLocation} setMapClick={setMapClick} />
 
         <NewForm isOpen={isModalOpen} onClose={closeModal} getLocation={getLocation} setGetLocation={setGetLocation} mapClick={mapClick} />
-        <CreateButton onClick={openModal} setMapClick={setMapClick} />
     </div>
 
 }
