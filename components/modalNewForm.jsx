@@ -53,9 +53,15 @@ const Modal = ({ isOpen, onClose, getLocation, setGetLocation, mapClick }) => {
     return (
         <div className="fixed inset-0 h-full w-full bg-black bg-opacity-50 flex justify-center items-center z-[1000] shadow-md" onClick={onClose}>
             <div className="flex flex-col bg-neutral-800 p-5 rounded-xl w-full max-w-lg" onClick={(e) => e.stopPropagation()}>
-                <p className='relative'>X</p>
+                
 
-                <h1 className="text-2xl text-brand mb-6">New occurrence</h1>
+                <div className='container mx-auto px-4 py-4 flex justify-between items-center align-center'>
+                    <h1 className="text-2xl text-brand mb-6">New occurrence</h1>
+                    <p className='text-xl text-neutral-100 mb-6'>
+                        <button onClick={onClose}>X</button>
+                    </p>
+                </div>
+                
 
                 <form onSubmit={handleSubmit}>
 

@@ -20,3 +20,7 @@ select {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
+
+#parentTransparent {
+  background-color: rgba(38, 38, 38, 0.5);
+}

@@ -1,7 +1,7 @@
 // components/Navbar.js
 export default function Card({title, description, location}) {
     return (
-        <div className="mb-8 sm:mb-0 shadow-md w-full sm:w-96 rounded-xl border-brand h-52">
+        <div className="sm:mb-0 shadow-md w-full sm:w-96 rounded-xl border-brand h-52 opacity-100">
             <div className="w-full h-3/6 overflow-hidden rounded-t-xl">
                 <img src="https://pplware.sapo.pt/wp-content/uploads/2022/08/buraco_00-1.jpg" alt="" />
             </div>

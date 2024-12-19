@@ -69,10 +69,15 @@ export default function Page() {
 
     return <div className="w-full h-full flex justify-start items-center">
 
-        <div className="fixed px-3 py-2 ml-3 h-3/6 rounded-md z-[1000] flex flex-col overflow-scroll gap-12 items-center">
-            {closestOccurrences.map((occurrence) => (
-                <Card key={occurrence.id} title={occurrence.title} description={occurrence.description} />
-            ))}
+        <div id="parentTransparent" className="fixed px-3 pt-3 pb-12 ml-3 h-3/6 rounded-md z-[1000] flex flex-col overflow-scroll items-center">
+            <p className="px-2 py-3 text-white text-2xl rounded-md mb-4">Closest unsolved occurrences</p>
+            <div className="gap-12 flex flex-col items-center">
+                {closestOccurrences.map((occurrence) => (
+                    <Card key={occurrence.id} title={occurrence.title} description={occurrence.description} />
+                ))}
+            </div>
+
+
         </div>
         {console.log("getLocation before map is rendered on page.jsx: " + getLocation)}
         <Map refresh={refresh} onClick={openModal} getLocation={getLocation} setGetLocation={setGetLocation} setMapClick={setMapClick} />
