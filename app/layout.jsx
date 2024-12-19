@@ -14,6 +14,7 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
         <link href="https://fonts.googleapis.com/css2?family=Bungee&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="custom.css" />
+        <link rel="shortcut icon" href="sam_logo.png" type="image/x-icon" />
       </head>
       <body className="bg-neutral-300 w-full h-screen">
 
