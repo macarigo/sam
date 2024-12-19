@@ -16,7 +16,7 @@ const customIcon = L.icon({
     popupAnchor: [0, -40], // Point from which the popup opens (relative to the icon anchor)
 });
 
-export default function Map ({setGetLocation}){
+export default function Map ({setGetLocation, getLocation, mapClick}){
 
     const CenterMapOnUserLocation = ({ location }) => {
         const map = useMap();
@@ -24,6 +24,7 @@ export default function Map ({setGetLocation}){
         useEffect(() => {
             if (location) {
                 map.setView(location, 15); // Center map on user's location with a zoom level of 15
+                setGetLocation(location);
             }
         }, [location, map]);
     
@@ -37,6 +38,13 @@ export default function Map ({setGetLocation}){
     const [markerPosition, setMarkerPosition] = useState(null);
 
     useEffect(() => {
+
+        if(mapClick) {
+            console.log("map click if, get location: " + getLocation);
+            setDefaultPosition(getLocation);
+            setMarkerPosition(getLocation);
+            return;
+        }
         // Request user's location using Geolocation API
         navigator.geolocation.getCurrentPosition(
             (pos) => {
@@ -69,8 +77,8 @@ export default function Map ({setGetLocation}){
                 center={defaultPosition}
                 zoom={20}
             >
-                <MapEventHandler />
                 <CenterMapOnUserLocation location={defaultPosition} />
+                <MapEventHandler />
                 <TileLayer
                     attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
                     url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -42,8 +42,8 @@ export default function Page() {
 
         <section className="flex flex-wrap flex-col sm:flex-row sm:gap-4 w-full items-center justify-between place-content-evenly pt-8">
 
-            {occurencies.map((occurency) => (
-                <Card key={occurency.id} title={occurency.title} description={occurency.description} />
+            {occurencies.map((occurence) => (
+                <Card key={occurence.id} title={occurence.title} description={occurence.description} />
             ))}
 
             
@@ -51,7 +51,7 @@ export default function Page() {
 
         <NewForm isOpen={isModalOpen} onClose={closeModal}/>
 
-        <CreateButton onClick={openModal} openModal/>
+        <CreateButton onClick={openModal}/>
 
     </div>
 

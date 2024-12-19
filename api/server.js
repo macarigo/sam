@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 
 // Sample data
 let occurencies = [
-    
+
 ];
 
 // Get all occurencies
@@ -39,7 +39,7 @@ app.get('/api/locations', (req, res) => {
 
 // Add a new occurency
 app.post('/api/occurencies', (req, res) => {
-    const { title, description, category, image, location, date } = req.body;
+    const { title, description, category, image, location } = req.body;
     if (!title || !description || !category || !location) {
         return res.status(400).send('Fill in the required fields');
     }
@@ -51,10 +51,9 @@ app.post('/api/occurencies', (req, res) => {
         category,
         image,
         location,
-        date
+        date: Date.now(),
+        solved: false,
     };
-
-    newOccurency.date = Date.now();
 
     occurencies.push(newOccurency);
     res.status(201).json(newOccurency);
@@ -87,6 +86,35 @@ app.delete('/api/occurencies/:id', (req, res) => {
     const deletedOccurency = occurencies.splice(occurencyIndex, 1);
     res.json(deletedOccurency[0]);
 });
+
+function haversine(lat1, lng1, lat2, lng2) {
+    const toRad = (angle) => (angle * Math.PI) / 180;
+    const R = 6371; // Earth's radius in km
+    const dLat = toRad(lat2 - lat1);
+    const dLng = toRad(lng2 - lng1);
+    const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+        Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c; // Distance in km
+}
+
+app.post('/api/closestOccurrences', (req, res) => {
+
+    const { locationLat, locationLng } = req.body;
+    if (!locationLat || !locationLng) {
+        return res.status(400).send('Fill in the required fields');
+    }
+
+    res.json(occurencies
+        .map((occurrence) => ({
+            ...occurrence,
+            distance: haversine(locationLat, locationLng, occurrence.location[0], occurrence.location[1]),
+        }))
+        .sort((a, b) => a.distance - b.distance)
+        .slice(0, 5));
+})
 
 // Start the server
 const PORT = 4000;

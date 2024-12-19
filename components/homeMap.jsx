@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvent, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 // Fix for marker icon issues
@@ -27,11 +27,11 @@ const CenterMapOnUserLocation = ({ location }) => {
     return null;
 };
 
-const Map = () => {
+const Map = ({ refresh, onClick, getLocation, setGetLocation, setMapClick }) => {
     const [markers, setMarkers] = useState([]);
     let [defaultPosition, setDefaultPosition] = useState([41.15, -8.61024]); // Default location: Puortoo
 
-    console.log(navigator.geolocation);
+    console.log("getLocation: " + getLocation);
 
     const fetchMarkers = async () => {
         try {
@@ -44,6 +44,32 @@ const Map = () => {
             console.error('Error fetching locations:', error);
         }
     }
+
+    function MapEventHandler({ setGetLocation }) {
+
+        useMapEvents({
+            dragend: (e) => {
+                
+                
+                console.log(e.target._lastCenter.lat, e.target._lastCenter.lng);
+                setGetLocation([e.target._lastCenter.lat, e.target._lastCenter.lng]); // Update location state
+            },
+            click: (event) => {
+                console.log("event.latlng = " + event.latlng);
+                console.log(event);
+                setGetLocation([event.latlng.lat, event.latlng.lng]);
+                setMapClick(true);
+                onClick([event.latlng.lat, event.latlng.lng]);
+            }
+        });
+        return null;
+    }
+
+    useEffect(() => {
+
+        fetchMarkers();
+
+    }, [refresh])
 
     useEffect(() => {
         // Request user's location using Geolocation API
@@ -61,6 +87,10 @@ const Map = () => {
 
         fetchMarkers();
 
+        console.log("getLocation before setGetLocation(defaultPosition): " + getLocation)
+        setGetLocation(defaultPosition);
+        console.log("getLocation after setGetLocation(defaultPosition): " + getLocation);
+
 
     }, []);
 
@@ -70,7 +100,7 @@ const Map = () => {
             center={defaultPosition}
             zoom={15}
         >
-
+            <MapEventHandler setGetLocation={setGetLocation} />
             <TileLayer
                 attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a>"
                 url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -85,11 +115,11 @@ const Map = () => {
                 }
 
                 return (
-                    <Marker 
-                        key={marker.id} 
+                    <Marker
+                        key={marker.id}
                         position={marker.location}
                         icon={customIcon}>
-                        
+
                         <Popup>
                             {marker.title || "No title provided"}
                         </Popup>
