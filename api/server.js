@@ -10,7 +10,7 @@ const bodyParser = require('body-parser');
 
 app.use(cors({
     origin: 'http://localhost:3000', // Replace with your frontend URL
-    methods: 'GET,POST,PUT,DELETE', // Allowed HTTP methods
+    methods: 'GET,POST,PUT,DELETE,OPTIONS', // Allowed HTTP methods
 }));
 
 // Middleware
