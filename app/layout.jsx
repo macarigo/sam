@@ -27,6 +27,10 @@ export default function RootLayout({ children }) {
           {children}
         </main>
 
+        <footer className="px-3 py-2 bg-brand">
+          Cenas
+        </footer>
+
       </body>
     </html>
   )

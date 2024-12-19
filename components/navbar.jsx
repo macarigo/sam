@@ -14,13 +14,6 @@ export default function Navbar() {
                     <img className='max-h-8 max-w-8' src="sam_logo.png" alt="" />
                     SAM
                 </Link>
-
-                {/* Menu Options - Right Aligned */}
-                <div className="flex gap-x-3 ">
-                    <Link href="/partners" className={"hover:text-brand " + (currentRoute === "/partners" ? "text-brand" : "text-white")}>
-                        Partners
-                    </Link>
-                </div>
             </div>
         </nav>
     );

@@ -901,6 +901,10 @@ video {
   max-width: 32rem;
 }
 
+.flex-grow {
+  flex-grow: 1;
+}
+
 .resize-none {
   resize: none;
 }

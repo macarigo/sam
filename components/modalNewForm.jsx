@@ -1,4 +1,4 @@
-'use cliente'
+'use client';
 import React, { useEffect, useState } from 'react';
 import FormMap from "../components/formMap";
 
