@@ -23,12 +23,18 @@ export default function RootLayout({ children }) {
 
         </header>
 
-        <main className="m-auto pt-24 w-full h-full flex flex-wrap justify-center content-start items-center">
+        <main className="m-auto pt-24 w-full h-full flex-1 flex flex-wrap justify-center content-start items-center">
           {children}
         </main>
 
-        <footer className="px-3 py-2 bg-brand">
-          Cenas
+        <footer className="fixed z-[1000] bottom-0 w-full text-neutral-100 px-3 py-2 bg-brand flex justify-center align-center items-center">
+          
+          <div className="flex flex-col justify-center align-center items-center">
+            <p>SAM © {new Date().getFullYear()}</p>
+          
+          <p>A <a href="https://codeforall.com/">&lt;Code for All_&gt;</a> project</p>
+          </div>
+          
         </footer>
 
       </body>

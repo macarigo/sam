@@ -91,7 +91,7 @@ export default function myApp() {
         if (sidePanelActive) {
             return (
 
-                <div id="parentTransparent" className="fixed px-3 pt-3 pb-12 ml-3 h-3/6 rounded-md z-[1000] flex flex-col overflow-scroll items-center">
+                <div id="parentTransparent" className="fixed px-3 pt-3 pb-12 ml-3 mr-3 h-3/6 rounded-md z-[1000] flex flex-col overflow-scroll items-center">
                     <div className='container mx-auto px-4 py-4 flex justify-between items-center align-center'>
                         <p className="text-white text-2xl mb-4">Closest unsolved occurrences</p>
                         <p className='text-xl text-neutral-100 mb-4'>

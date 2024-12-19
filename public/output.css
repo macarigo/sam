@@ -612,6 +612,10 @@ video {
   left: 1rem;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
 .z-0 {
   z-index: 0;
 }
@@ -727,6 +731,10 @@ video {
 
 .mt-\[-400px\] {
   margin-top: -400px;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .box-border {
@@ -899,6 +907,10 @@ video {
 
 .max-w-lg {
   max-width: 32rem;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .flex-grow {
