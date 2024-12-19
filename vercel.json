@@ -1,0 +1,7 @@
+{
+    "build": {
+      "env": {
+        "VERCEL_ROUTER_INCLUDE": "https://sam.api.ssaxel03/*"
+      }
+    }
+  }
