@@ -26,7 +26,7 @@ export default function myApp() {
         console.log("FETCHING");
 
         try {
-            const response = await fetch('https://ec2-13-60-190-47.eu-north-1.compute.amazonaws.com//api/closestOccurrences', {
+            const response = await fetch('https://sam.api.ssaxel03.com/api/closestOccurrences', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

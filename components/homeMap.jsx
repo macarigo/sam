@@ -35,7 +35,7 @@ const Map = ({ refresh, onClick, getLocation, setGetLocation, setMapClick }) => 
 
     const fetchMarkers = async () => {
         try {
-            const response = await fetch('https://ec2-13-60-190-47.eu-north-1.compute.amazonaws.com//api/locations'); // Replace with your API URL
+            const response = await fetch('https://sam.api.ssaxel03.com/api/locations'); // Replace with your API URL
             if (!response.ok) throw new Error('Failed to fetch locations');
             const data = await response.json();
             setMarkers(data); // Update state with fetched data
