@@ -33,7 +33,7 @@ export default function RootLayout({ children }) {
           <div className="flex flex-col justify-center align-center items-center">
             <p>SAM © {new Date().getFullYear()}</p>
           
-          <p>A <a href="https://codeforall.com/">&lt;Code for All_&gt;</a> project</p>
+          <p>A <a href="https://codeforall.com/">&lt;Code for All_&gt;</a> &lt;Make IT Real&gt; project</p>
           </div>
           
         </footer>
