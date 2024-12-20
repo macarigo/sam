@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
 
-        <footer className="fixed z-[1000] bottom-0 w-full text-neutral-100 px-3 py-2 bg-brand flex justify-center align-center items-center">
+        <footer className="fixed z-[900] bottom-0 w-full text-neutral-100 px-3 py-2 bg-brand flex justify-center align-center items-center">
           
           <div className="flex flex-col justify-center align-center items-center">
             <p>SAM © {new Date().getFullYear()}</p>
