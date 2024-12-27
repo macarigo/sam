@@ -2,6 +2,10 @@
 
 <p>SAM is a platform that empowers users to report local occurrences in a simple, uniform, and intuitive way. By providing local authorities with a standardized method to receive and address reports, SAM aims to bridge the gap between communities and authorities.</p>
 
+<p>Deployed <a href="https://sam.ssaxel03.com">here</a>.</p>
+
+<img alt="License badge" src="https://img.shields.io/github/license/ssaxel03/sam?style=flat&label=License&labelColor=%23262626&color=%230EBED7" /> <img alt="Version badge" src="https://img.shields.io/github/package-json/v/ssaxel03/sam?style=flat&label=Version&labelColor=%23262626&color=%230EBED7" /> <img alt="Status badge" src="https://img.shields.io/badge/Online-X?style=flat&label=Status&labelColor=%23262626&color=%230EFF98" />
+
 ---
 
 ## About the Project
