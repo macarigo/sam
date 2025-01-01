@@ -4,7 +4,7 @@
 
 <p align="justify">Deployed <a href="https://sam.ssaxel03.com">here</a>.</p>
 
-<img alt="License badge" src="https://img.shields.io/github/license/ssaxel03/sam?style=flat&label=License&labelColor=%23262626&color=%230EBED7" /> <img alt="Version badge" src="https://img.shields.io/github/package-json/v/ssaxel03/sam?style=flat&label=Version&labelColor=%23262626&color=%230EBED7" /> <img alt="Status badge" src="https://img.shields.io/badge/Online-X?style=flat&label=Status&labelColor=%23262626&color=%230EFF98" />
+<img alt="License badge" src="https://img.shields.io/github/license/ssaxel03/sam?style=flat&label=License&labelColor=%23262626&color=%230EBED7" /> <img alt="Version badge" src="https://img.shields.io/github/package-json/v/ssaxel03/sam?style=flat&label=Version&labelColor=%23262626&color=%230EBED7" /> <img alt="Status badge" src="https://img.shields.io/website?url=https%3A%2F%2Fsam.ssaxel03.com&up_message=Online&up_color=%230EBED7&down_message=Offline&down_color=%23D70E0E&style=flat&label=Status&labelColor=%23262626" />
 
 ---
 
