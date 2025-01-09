@@ -16,24 +16,22 @@ export default function RootLayout({ children }) {
         <link rel="stylesheet" href="custom.css" />
         <link rel="shortcut icon" href="sam_logo.png" type="image/x-icon" />
       </head>
-      <body className="bg-neutral-300 w-full h-screen">
+      <body className="bg-neutral-800 w-full h-screen flex flex-col">
 
-        <header className="flex-full">
+        <header className="w-full h-fit">
 
           <Navbar />
 
         </header>
 
-        <main className="m-auto pt-24 w-full h-full flex-1 flex flex-wrap justify-center content-start items-center">
+        <main className="w-full bg-neutral-300 text-neutral-800 flex flex-1 grow flex flex-wrap justify-center content-start items-center">
           {children}
         </main>
 
-        <footer className="fixed z-[900] bottom-0 w-full text-neutral-100 px-3 py-2 bg-brand flex justify-center align-center items-center">
+        <footer className="z-[900] bottom-0 w-full text-neutral-300 px-3 py-2 bg-neutral-800 flex justify-center align-center items-center">
           
           <div className="flex flex-col justify-center align-center items-center">
             <p>SAM © {new Date().getFullYear()}</p>
-          
-          <p>A <a href="https://codeforall.com/">&lt;Code for All_&gt;</a> &lt;Make IT Real&gt; project</p>
           </div>
           
         </footer>
